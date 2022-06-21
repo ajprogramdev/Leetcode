@@ -43,3 +43,12 @@ Steps:
     
     return false;      
 };
+
+/*
+Other Solutions:
+-A Set is a datastructure that stores unique values.
+- Create a (set) of the array.
+    -if (set.length == array.length): return false;
+    -else return true;
+
+*/
