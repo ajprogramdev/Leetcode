@@ -103,3 +103,39 @@ function printReverse(min, max) {
 
 console.log(printReverse(13, 18));// => [17, 16, 15, 14]
 console.log(printReverse(90, 94)); // => [93, 92, 91]
+
+/*
+Define a function fizzBuzz(max) that takes a number and returns an array of every number from 0 to max 
+that is divisible by either 3 or 5, but not both.
+
+Examples:
+fizzBuzz(20); // => [3, 5, 6, 9, 10, 12, 18]
+
+Approach:
+1.Create an array to store the numbers.
+2.Edge Cases
+    -Max is exclusive.
+3.For loop between index=0 <= max
+            Check if divisible by both 3 and 5 if is skip, 
+             if not divisible, check if divisible by each.
+4.return the array.
+*/
+
+function fizzBuzz(max) {
+    const numArr = [];
+
+    for (let i=0; i < max; i++) {
+        const three = i % 3;
+        const five = i % 5;
+        if (three === 0 && five === 0) {
+            continue;
+        } else if (five === 0){
+            numArr.push(i);
+        } else if (three === 0) {
+            numArr.push(i);
+        }
+    }
+
+    return numArr;
+}
+console.log(fizzBuzz(20)); // => [3, 5, 6, 9, 10, 12, 18]
