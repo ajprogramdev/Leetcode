@@ -139,3 +139,42 @@ function fizzBuzz(max) {
     return numArr;
 }
 console.log(fizzBuzz(20)); // => [3, 5, 6, 9, 10, 12, 18]
+
+/*
+
+isPrime
+Define a function isPrime(number) that returns true if number is prime. Otherwise, false. 
+Assume number is a positive integer.
+
+Examples:
+isPrime(2);  // => true
+isPrime(10);  // => false
+isPrime(11);  // => true
+isPrime(9);  // => false
+isPrime(2017);  // => true
+
+Approach:
+1.Edge Cases.
+    A prime number is a number that can only be perfectly divided by itself and 1.
+    whole number greater than 1 that cannot be exactly 
+    divided by any whole number other than itself and 1 (e.g. 2, 3, 5, 7, 11).
+    -if the number is 2 is true.
+
+2.check if the number is a perfect division by 2.
+
+*/
+
+function isPrime(number) {
+    for (let i=2; i<number; i++) {
+        if (number % i == 0){
+            return false;
+        }
+    }  
+     return true;
+}
+ 
+console.log(isPrime(2));  // => true
+console.log(isPrime(10));  // => false
+console.log(isPrime(11));  // => true
+console.log(isPrime(9));  // => false
+console.log(isPrime(2017));  // => true
