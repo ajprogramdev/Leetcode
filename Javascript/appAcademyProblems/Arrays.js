@@ -74,3 +74,32 @@ function logBetweenStepper(min, max, step) {
 
 console.log(logBetweenStepper(5, 9, 1)); // => [5, 6, 7, 8, 9]
 console.log(logBetweenStepper(-10, 15, 5)); // => [-10, -5, 0, 5, 10, 15])
+
+/*
+Write a function printReverse(min, max) that returns an array of all numbers from max to min (exclusive), 
+in reverse order.
+
+Examples:
+printReverse(13, 18) // => [17, 16, 15, 14]
+printReverse(90, 94) // => [93, 92, 91]
+
+Approach:
+1.Create an array to store the numbers.
+2.Edge cases
+3.For loop count none inclusive starting with max ending with min
+                push to num array.
+4. Return array
+*/
+
+function printReverse(min, max) {
+    const numArr = [];
+
+    for (let i=max-1; i > min; i--) {
+        numArr.push(i);
+    }
+
+    return numArr;
+}
+
+console.log(printReverse(13, 18));// => [17, 16, 15, 14]
+console.log(printReverse(90, 94)); // => [93, 92, 91]
