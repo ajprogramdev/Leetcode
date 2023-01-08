@@ -290,3 +290,31 @@ function factorArray(array, number) {
 console.log(factorArray([2,3,4,5,6],20)); // => [2,4,5]
 console.log(factorArray([2,3,4,5,6],35)); // => [5]
 console.log(factorArray([10,15,20,25],5)); // => []
+
+/*
+Write a function oddRange(end) that takes in a number and 
+returns an array containing all positive odd numbers up to end.
+
+Examples:
+oddRange(13);  // => [ 1, 3, 5, 7, 9, 11, 13 ]
+oddRange(6);  // => [ 1, 3, 5 ]
+
+Approach:
+1.Edge Cases
+2.Create an array to store the odd numbers.
+3.Loop through array
+    if arr[i] % 2 === 1 push index into array of odds.
+4.Return the odd numbers array.
+*/
+function oddRange(end) {
+
+    const arrOdd = [];
+    for (let i=1; i <= end; i++) {
+        if (i % 2 === 1) {
+            arrOdd.push(i);
+        }
+    }
+    return arrOdd;
+}
+console.log(oddRange(13));  // => [ 1, 3, 5, 7, 9, 11, 13 ]
+console.log(oddRange(6));  // => [ 1, 3, 5 ]
