@@ -318,3 +318,25 @@ function oddRange(end) {
 }
 console.log(oddRange(13));  // => [ 1, 3, 5, 7, 9, 11, 13 ]
 console.log(oddRange(6));  // => [ 1, 3, 5 ]
+
+/*
+Write a function reverseHyphenString(string) that takes in a hyphenated string and returns 
+a the hyphenated string reversed.
+
+Examples:
+reverseHyphenString("Go-to-the-store") // => "store-the-to-Go"
+reverseHyphenString("Jump,-jump-for-joy") // => "joy-for-jump-Jump,"
+
+Approach:
+1.Edge Cases
+2.Split string by "-" into an array.
+3.Reverse the array.
+4.Join the array adding "-" between.
+5.return the string
+*/
+function reverseHyphenString(string){
+    
+    return string.split("-").reverse().join("-");
+}
+console.log(reverseHyphenString("Go-to-the-store")); // => "store-the-to-Go"
+console.log(reverseHyphenString("Jump,-jump-for-joy")); // => "joy-for-jump-Jump,"
