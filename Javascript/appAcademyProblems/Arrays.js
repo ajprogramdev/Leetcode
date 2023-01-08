@@ -230,12 +230,32 @@ myIndexOf([1,2,3,4],4); // => 3
 myIndexOf([5,6,7,8],2); // => -1
 
 Approach:
-1.
-2.
-3.
+1.Edge Cases
+    Is the array in order? Yes
+    Do values repeat themselves? No
+2. Implement Binary Search.
+3.return value.
 */
 
 function myIndexOf(array, target){
 
+  let left = 0;
+  let right = arr.length - 1;
 
+  while (left <= right) {
+    
+    let mid = Math.floor((left + right) / 2);
+
+    if (array[mid] === target) {
+      return mid;
+    }
+
+    if (val < arr[mid]) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+  
+  return -1;
 }
