@@ -335,8 +335,44 @@ Approach:
 5.return the string
 */
 function reverseHyphenString(string){
-    
+
     return string.split("-").reverse().join("-");
 }
 console.log(reverseHyphenString("Go-to-the-store")); // => "store-the-to-Go"
 console.log(reverseHyphenString("Jump,-jump-for-joy")); // => "joy-for-jump-Jump,"
+
+/*
+Write a function intersect(arr1, arr2) that takes in two arrays and returns a new array containing 
+the elements common to both arr1 and arr2.
+
+Examples:
+intersect(['a', 'b', 'c', 'd'], ['b', 'd', 'e']) // => [ 'b', 'd' ]
+intersect(['a', 'b', 'c'], ['x', 'y', 'z']) // => []
+
+Approach:
+1.Create a hashmap for storing each value in the array.
+2.Loop through one of the arrays, storing its value in the hashmap if it doesnt exist.
+3.Loop through second array and verify if the values exist in hasmap, 
+    if they exist add them to a new array.
+4.return the new array.
+*/
+function intersect(arr1, arr2) {
+    const hashMap = {};
+    const commonsArr = [];
+    for (let i=0; i < arr1.length; i++) {
+        if (!hashMap.hasOwnProperty(arr1[i])) {
+            hashMap[arr1[i]] = i;
+        }
+    }
+
+    for (let i=0; i < arr2.length; i++) {
+        if (hashMap.hasOwnProperty(arr2[i])) {
+            commonsArr.push(arr2[i]);
+        }
+    }
+
+    return commonsArr;
+}
+
+console.log(intersect(['a', 'b', 'c', 'd'], ['b', 'd', 'e'])); // => [ 'b', 'd' ]
+console.log(intersect(['a', 'b', 'c'], ['x', 'y', 'z'])); // => []
