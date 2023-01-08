@@ -376,3 +376,25 @@ function intersect(arr1, arr2) {
 
 console.log(intersect(['a', 'b', 'c', 'd'], ['b', 'd', 'e'])); // => [ 'b', 'd' ]
 console.log(intersect(['a', 'b', 'c'], ['x', 'y', 'z'])); // => []
+
+/*
+Write a function mirrorArray(array) that takes in an array as 
+an argument and returns a new array "mirrored" as shown in the examples:
+
+Examples:
+mirrorArray([1,2,3]); // => [ 1, 2, 3, 3, 2, 1 ]
+mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
+
+Approach:
+1.
+2.
+3.
+4.
+*/
+
+function mirrorArray(array){
+
+}
+
+console.log(mirrorArray([1,2,3])); // => [ 1, 2, 3, 3, 2, 1 ]
+console.log(mirrorArray(['a', 'b', 'c', 'd'])); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
