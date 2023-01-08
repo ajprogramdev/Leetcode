@@ -386,15 +386,64 @@ mirrorArray([1,2,3]); // => [ 1, 2, 3, 3, 2, 1 ]
 mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
 
 Approach:
-1.
-2.
-3.
-4.
+1.Join an array with the same array but reversed.
+2.Create a new array of the argument array.
+3.Add spread argument array to the new array but reversed.
+4.return new array.
 */
 
 function mirrorArray(array){
-
+    return [...array,...array.reverse()];
 }
 
 console.log(mirrorArray([1,2,3])); // => [ 1, 2, 3, 3, 2, 1 ]
 console.log(mirrorArray(['a', 'b', 'c', 'd'])); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
+
+/*
+Write a function abbreviate(sentence) that takes in a sentence string and returns a new sentence 
+where words longer than 4 characters have their vowels removed. Assume the sentence has all lowercase characters. 
+Feel free to use the array below in your 
+solution: const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+Examples:
+abbreviate('the bootcamp is fun'); // => 'the btcmp is fun'
+abbreviate('programming is fantastic'); // => 'prgrmmng is fntstc'
+abbreviate('hello world'); // => 'hll wrld'
+abbreviate('how are you'); // => 'how are you'
+
+Approach:
+1.Edge Cases
+2.Split each string into words.
+3.split each word into an array,
+    if the length >= 4 loop through the word and check if the letter exists, if it doest remove it, add to new string.
+
+*/
+function abbreviate(sentence) {
+    const vowels = {
+        'a':'a',
+        'e':'e',
+        'i':'i',
+        'o':'o',
+        'u':'u'
+    }
+    const words = sentence.split(' ');
+
+    for (let i=0; i < words.length; i++) {
+        if (words[i].length >= 4) {
+            const letters = words[i].split('');
+            let word = "";
+            for (let x=0; x < letters.length; x++) {
+                if (!vowels.hasOwnProperty(letters[x])){
+                    word += letters[x];
+                }
+            }
+            words[i] = word;
+        }
+    }
+
+    return words.join(' ');
+}
+console.log(abbreviate('the bootcamp is fun')); // => 'the btcmp is fun'
+console.log(abbreviate('programming is fantastic')); // => 'prgrmmng is fntstc'
+console.log(abbreviate('hello world')); // => 'hll wrld'
+console.log(abbreviate('how are you')); // => 'how are you'
