@@ -256,6 +256,37 @@ function myIndexOf(array, target){
       left = mid + 1;
     }
   }
-  
+
   return -1;
 }
+
+/*
+Write a function factorArray(array, number) that takes in an array of 
+numbers and a number and returns an array of all the factors.
+
+Examples:
+factorArray([2,3,4,5,6],20) // => [2,4,5]
+factorArray([2,3,4,5,6],35) // => [5]
+factorArray([10,15,20,25],5) // => []
+
+Approach:
+1.Edge cases
+2.Create an empty array for the factors.
+3.Loop through array
+    Check if the arr[index] is perfect division by the number,
+    if it is, push to array.  
+4.return Array.
+*/
+function factorArray(array, number) {
+    const factors = [];
+    for (let i=0; i < array.length; i++) {
+        if (number % array[i] === 0){
+            factors.push(array[i]);
+        }
+    }
+
+    return factors;
+}
+console.log(factorArray([2,3,4,5,6],20)); // => [2,4,5]
+console.log(factorArray([2,3,4,5,6],35)); // => [5]
+console.log(factorArray([10,15,20,25],5)); // => []
