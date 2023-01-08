@@ -178,3 +178,64 @@ console.log(isPrime(10));  // => false
 console.log(isPrime(11));  // => true
 console.log(isPrime(9));  // => false
 console.log(isPrime(2017));  // => true
+
+/*
+Write a function maxValue(array) that returns the largest value in array. 
+Assume array is an array of numbers.
+
+Examples:
+maxValue([12, 6, 43, 2]);  // => 43
+maxValue([]);  // => null
+maxValue([-4, -10, 0.43]);  // => 0.43
+
+Approach:
+1.Edge Cases
+    Is the array ordered? get last value.
+    If empty return null
+2.Create a max value variable with the first array value.
+3. Loop through the values starting at second index
+    compare arr[index] with max value, store the highest.  
+3. return the value.
+*/
+function maxValue(array){
+
+    if (array.length < 1) {
+        return null;
+    }
+    let highNum = array[0];
+    for (let i = 1; i < array.length; i++) {
+
+        if (array[i] > highNum) {
+            highNum = array[i];
+        }
+
+    }
+
+    return highNum;
+}
+
+console.log(maxValue([12, 6, 43, 2]));  // => 43
+console.log(maxValue([]));  // => null
+console.log(maxValue([-4, -10, 0.43]));  // => 0.43
+
+
+/*
+Write a function myIndexOf(array, target) that takes in an array of numbers and a target number as arguments. 
+It should return the index value of the target if it is present in the array or -1 if it is not present.
+
+CONSTRAINT: Do not use the indexOf or includes method
+
+Examples:
+myIndexOf([1,2,3,4],4); // => 3
+myIndexOf([5,6,7,8],2); // => -1
+
+Approach:
+1.
+2.
+3.
+*/
+
+function myIndexOf(array, target){
+
+
+}
