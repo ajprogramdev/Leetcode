@@ -550,3 +550,50 @@ const peeps = [
     { name: "Winnie", score: 2 }
 ]; 
 console.log(countScores(peeps)); // => { Anthony: 4, Fred: 4, Winnie: 6 }
+
+/*
+Using the isPrime function you made, write a function firstNPrimes(n) 
+that returns an array of the first n prime numbers.
+
+Examples:
+firstNPrimes(0);  // => []
+firstNPrimes(1);  // => [2]
+firstNPrimes(4);  // => [2, 3, 5, 7]
+
+Approach:
+1.Edge Cases
+2.Create a helper, isPrime function.
+3.Create a while loop, count < n where count is how many prime numbers found. 
+    Create a counter for starting the ini
+4.
+*/
+
+function firstNPrimes(n){
+
+    let found = 0;
+    let count = 2;
+    const primesArr = [];
+    while (found < n) {
+        const isprime = isPrime(count);
+        if (isprime) {
+            primesArr.push(count);
+            found++;
+        }
+        count++;
+    }
+
+    return primesArr;
+}
+
+function isPrime(number) {
+    for (let i=2; i<number; i++) {
+        if (number % i == 0){
+            return false;
+        }
+    }  
+     return true;
+}
+
+console.log(firstNPrimes(0));  // => []
+console.log(firstNPrimes(1));  // => [2]
+console.log(firstNPrimes(4));  // => [2, 3, 5, 7]
