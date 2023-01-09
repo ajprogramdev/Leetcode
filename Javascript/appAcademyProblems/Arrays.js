@@ -484,3 +484,69 @@ const ppl = [
     {name: 'Bob', age: 7}
 ];
 console.log(adults(ppl));  // => [ 'John', 'Jane' ]
+
+/*
+Write a function countScores(people) that takes in an array of score objects, people, as its input. 
+A score object, people, has two key-value pairs: a name (string) and a score (number). 
+countScores(people) should return an object that has key-value pairs where each name is a key and the value is their total score.
+
+// Example 1:
+const ppl = [
+  { name: "Anthony", score: 10 },
+  { name: "Fred", score : 10 },
+  { name: "Anthony", score: -8 },
+  { name: "Winnie", score: 12 }
+];
+countScores(ppl); // => { Anthony: 2, Fred: 10, Winnie: 12 }
+
+// Example 2
+const peeps = [
+  { name: "Anthony", score: 2 },
+  { name: "Winnie", score: 2 },
+  { name: "Fred", score: 2 },
+  { name: "Winnie", score: 2 },
+  { name: "Fred", score: 2 },
+  { name: "Anthony", score: 2 },
+  { name: "Winnie", score: 2 }
+];
+
+countScores(peeps); // => { Anthony: 4, Fred: 4, Winnie: 6 }
+
+Approach:
+1.Edge Cases
+2.Create an object to hold peopleScores
+3.Loop through the array
+    if the person exists in the array, sum the existing score with the new one.
+    else Add new person to obj with its score.
+4.Return obj
+*/
+function countScores(people) {
+    const peopleScores = {};
+    for (let i=0; i < people.length; i++) {
+        if (peopleScores.hasOwnProperty(people[i].name)) {
+            peopleScores[people[i].name] = peopleScores[people[i].name] + people[i].score;
+        } else {
+            peopleScores[people[i].name] = people[i].score;
+        }
+
+    }
+    return peopleScores;
+}
+
+const peeps2 = [
+    { name: "Anthony", score: 10 },
+    { name: "Fred", score : 10 },
+    { name: "Anthony", score: -8 },
+    { name: "Winnie", score: 12 }
+];
+console.log(countScores(peeps2)); // => { Anthony: 2, Fred: 10, Winnie: 12 }
+const peeps = [
+    { name: "Anthony", score: 2 },
+    { name: "Winnie", score: 2 },
+    { name: "Fred", score: 2 },
+    { name: "Winnie", score: 2 },
+    { name: "Fred", score: 2 },
+    { name: "Anthony", score: 2 },
+    { name: "Winnie", score: 2 }
+]; 
+console.log(countScores(peeps)); // => { Anthony: 4, Fred: 4, Winnie: 6 }
