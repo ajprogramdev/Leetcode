@@ -447,3 +447,40 @@ console.log(abbreviate('the bootcamp is fun')); // => 'the btcmp is fun'
 console.log(abbreviate('programming is fantastic')); // => 'prgrmmng is fntstc'
 console.log(abbreviate('hello world')); // => 'hll wrld'
 console.log(abbreviate('how are you')); // => 'how are you'
+
+/*
+Write a function adults(people) that takes in an array of person objects. 
+The function should return an array containing the names of those who have an age of 18 or higher.
+
+Example:
+const ppl = [
+  {name: 'John', age: 20},
+  {name: 'Jim', age: 13},
+  {name: 'Jane', age: 18},
+  {name: 'Bob', age: 7}
+];
+adults(ppl); // => [ 'John', 'Jane' ]
+
+Approach:
+1.Edge Cases
+2.Create an array containing the names of people older than 18.
+3.Loop through ppl array
+    if age >= 18
+4.return array.
+*/
+function adults(people) {
+    const olderArr = [];
+    people.forEach(person => {
+        if (person.age >= 18){
+            olderArr.push(person.name);
+        }
+    });
+    return olderArr;
+}
+const ppl = [
+    {name: 'John', age: 20},
+    {name: 'Jim', age: 13},
+    {name: 'Jane', age: 18},
+    {name: 'Bob', age: 7}
+];
+console.log(adults(ppl));  // => [ 'John', 'Jane' ]
