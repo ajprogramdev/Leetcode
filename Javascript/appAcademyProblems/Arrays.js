@@ -647,3 +647,25 @@ console.log(peakFinder([4, 6, 9, 4, 2, -7, 2, -4, 5])); // => [2, 6, 8]
 console.log(peakFinder([1, 2, 3, 2, 1])); // => [2]
 console.log(peakFinder([2, 1, 2, 3, 4, 5])); // => [0, 5]
 console.log(peakFinder([4, 6, 9, 4, 2, -7, 2, -4, 5])); // => [2, 6, 8]
+
+/*
+Write a function divisibleByThreePairSum(array) that takes an array of numbers. 
+It should return an array of all the pairs of indices, whose elements sum to a multiple of three.
+
+Examples:
+const arr1 = divisibleByThreePairSum([1, 6, 3, 4, 2, 0]);
+arr1 // => [[0, 4], [1, 2], [1, 5], [2, 5], [3, 4]]
+const arr2 = divisibleByThreePairSum([8, 3, 5, 9, 2]);
+arr2 // => [[1, 3]]
+
+Approach:
+1.Edge Cases.
+2.
+3.
+4.
+*/
+
+function divisibleByThreePairSum(array) {
+
+    
+}
