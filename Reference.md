@@ -38,20 +38,20 @@ When a list of values is sorted.
 
  ~~~
 function binarySearch(arr, val) {
-  let start = 0;
-  let end = arr.length - 1;
+  let left = 0;
+  let right = arr.length - 1;
 
-  while (start <= end) {
-    let mid = Math.floor((start + end) / 2);
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
 
     if (arr[mid] === val) {
       return mid;
     }
 
     if (val < arr[mid]) {
-      end = mid - 1;
+      right = mid - 1;
     } else {
-      start = mid + 1;
+      left = mid + 1;
     }
   }
   return -1;
