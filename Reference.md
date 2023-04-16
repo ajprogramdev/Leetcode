@@ -36,7 +36,7 @@ When a list of values is sorted.
 
 #### Implementation
 
- ~~~
+ ```javascript
 function binarySearch(arr, val) {
   let left = 0;
   let right = arr.length - 1;
@@ -57,7 +57,7 @@ function binarySearch(arr, val) {
   return -1;
 }
 
-~~~
+```
 ## Sorting
 
 ### Quick Sort
