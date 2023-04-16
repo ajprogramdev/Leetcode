@@ -29,8 +29,10 @@
 ### Binary Search
 
 #### Time Complexity
+O(log n)
 
 #### When to use
+When a list of values is sorted.
 
 #### Implementation
 
