@@ -65,6 +65,7 @@ function binarySearch(arr, val) {
 ### Quick Sort
 
 Divide and conquer sorting algorithm, where you pick a pivot and move values left and right.
+[Explanation](https://www.youtube.com/watch?v=ceqwscS_muA)
 
 #### Time Complexity
 
