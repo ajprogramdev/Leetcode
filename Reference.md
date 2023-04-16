@@ -32,7 +32,7 @@
 O(log n)
 
 #### When to use
-When a list of values is sorted.
+Searching for a value in a sorted list.
 
 #### Implementation
 
