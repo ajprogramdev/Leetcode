@@ -29,14 +29,16 @@
 ### Binary Search
 
 #### Time Complexity
+
 O(log n)
 
 #### When to use
+
 Searching for a value in a sorted list.
 
 #### Implementation
 
- ```javascript
+```javascript
 function binarySearch(arr, val) {
   let left = 0;
   let right = arr.length - 1;
@@ -56,14 +58,41 @@ function binarySearch(arr, val) {
   }
   return -1;
 }
-
 ```
+
 ## Sorting
 
 ### Quick Sort
 
+Divide and conquer sorting algorithm, where you pick a pivot and move values left and right.
+
 #### Time Complexity
+
+Average O(nlogn)
+Worst O(n^2)
 
 #### When to use
 
+To sort a large array.
+
 #### Implementation
+
+```javascript
+function quickSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let pivot = arr[arr.length - 1];
+  let right = [];
+  let left = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+```
