@@ -84,4 +84,21 @@ describe('binarySearchTree', () => {
         expect(bst.insertNode(node2)).toEqual({"root": {"data": 36, "left": null, "right": null}});
     });
 
+    const pbst = new BST();
+    beforeEach(() => {
+        pbst.insertNode(new BSTNode(4));
+        pbst.insertNode(new BSTNode(2));
+        pbst.insertNode(new BSTNode(6));
+        pbst.insertNode(new BSTNode(1));
+        pbst.insertNode(new BSTNode(3));
+        pbst.insertNode(new BSTNode(5));
+        pbst.insertNode(new BSTNode(7));  
+    });
+
+
+    test('it should return true if the tree includes 5', () => {
+        expect(pbst.search(5)).toEqual(true);
+    });
+
+
 });
