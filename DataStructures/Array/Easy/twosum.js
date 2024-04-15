@@ -34,13 +34,18 @@ Steps:
  * @return {number[]}
  */
  var twoSum = function(nums, target) {
-    let map  = {};
-    for (let i=0; i < nums.length; i++) {
-        let compliment =  target - nums[i];
-        if (compliment in map) {
-            return [i,map[compliment]]
+    const map = {};
+ 
+    for (let i=0;i < nums.length;i++){
+        const compliment = target - nums[i];
+        if (map.hasOwnProperty(compliment)){
+            return [map[compliment], i]
         } else {
             map[nums[i]] = i;
         }
-    }     
+
+    }       
 };
+
+
+export default twoSum;
