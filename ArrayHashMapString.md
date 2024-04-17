@@ -120,3 +120,62 @@ var isPalindrome = function (sentence) {
   return true;
 };
 ```
+
+## #242 Valid Anagram Easy
+
+### Problem
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+Input: s = "rat", t = "car"
+Output: false
+
+Sample Input:\
+("anagram", "nagaram") => true\
+Explanation: They share the same amount of letters equally.\
+("rat", "car") => false\
+Explanation: They dont share the same letters.
+
+### Techniques
+
+### Problem solving steps:
+
+1. Create an Map using one of the words as base, count each character.
+2. Create a variable to carry the amount of characters the base word has.
+3. Loop through the second word, if the characters exist on the Map and not 0, -1 else return false.\
+   Lower the character count as they appear.
+4. If loop finishes, verify that count is 0 and return true, else false.
+
+### Time Complexity: O(n)
+
+```javascript
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+  const charObj = {};
+  let charCount = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    charObj[s[i]] = charObj.hasOwnProperty(s[i]) ? charObj[s[i]] + 1 : 1;
+    charCount++;
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    if (charObj.hasOwnProperty(t[i]) && charObj[t[i]] >= 1) {
+      charObj[t[i]] = charObj[t[i]] - 1;
+      charCount--;
+    } else {
+      return false;
+    }
+  }
+
+  if (charCount === 0) {
+    return true;
+  }
+
+  return false;
+};
+```
