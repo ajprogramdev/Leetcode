@@ -179,3 +179,55 @@ var isAnagram = function (s, t) {
   return false;
 };
 ```
+
+## #121 Best Time to Buy and Sell Stock
+
+### Problem
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+Sample Input:\
+([7,1,5,3,6,4]) => 5\
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.\
+([7,6,4,3,1]) => 0\
+Explanation: NO profit.
+
+### Techniques
+
+Sliding Window
+
+### Problem solving steps:
+
+1. Create a maxProfit and left and right pointers.
+2. Use a while loop to go through the prices array while left < right pointer.
+3. Compare left and right prices , change left to right if right price is smaller.
+4. Calculate profit and compare with maxProfit, set maxProfit to highest value.
+5. Increase right pointer on every iteration.
+6. Return maxProfit.
+
+### Time Complexity: O(n)
+
+```javascript
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+  let maxProfit = 0;
+  let left = 0;
+  let right = 1;
+
+  while (left < right && right <= prices.length - 1) {
+    if (prices[left] > prices[right]) {
+      left = right;
+    } else {
+      const profit = prices[right] - prices[left];
+      maxProfit = Math.max(maxProfit, profit);
+    }
+    right++;
+  }
+
+  return maxProfit;
+};
+```
