@@ -231,3 +231,47 @@ var maxProfit = function (prices) {
   return maxProfit;
 };
 ```
+
+## #167 TwoSum 2 - Input Array Is Sorted
+
+### Problem
+
+Given an array of integers nums and an integer target, return
+indeces of the two numbers such that they add up to target.\
+Sample Input:\
+([2,7,11,15], 9) => [1,2]\
+Because 2 + 7 = 9.
+
+### Techniques
+
+Two Pointer
+
+### Problem solving steps:
+
+### Time Complexity: O(n)
+
+```javascript
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (numbers, target) {
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    const complement = numbers[left] + numbers[right];
+    if (complement === target) {
+      return [left + 1, right + 1];
+    }
+
+    if (complement >= target) {
+      right--;
+    } else if (complement <= target) {
+      left++;
+    }
+  }
+
+  return [];
+};
+```
