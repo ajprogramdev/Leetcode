@@ -281,7 +281,7 @@ var twoSumSorted = function (numbers, target) {
 ### Problem
 
 Given an integer array nums, return true if any value appears at least twice in the array,
-and return false if every element is distinct.\
+and return false if every element is distinct.
 
 Sample Input:\
 ([1,2,3,1]) => true\
@@ -316,5 +316,56 @@ var containsDuplicate = function (nums) {
   }
 
   return false;
+};
+```
+
+## #347 Top K frequency element.
+
+### Problem
+
+Given an integer array nums and an integer k, return the k most frequent elements.
+You may return the answer in any order.
+
+Sample Input:\
+([1,1,1,2,2,3], 2) => [1,2]\
+([1], 1) => [1]\
+
+### Techniques
+
+Hashmap
+
+### Problem solving steps:
+
+### Time Complexity: O(n log n)
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function (nums, k) {
+  const frequency = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    frequency[nums[i]] = frequency.hasOwnProperty(nums[i])
+      ? frequency[nums[i]] + 1
+      : 1;
+  }
+
+  const frequencyArr = Object.keys(frequency).map((key) => {
+    return [Number(key), frequency[key]];
+  });
+
+  const sortedFrequency = frequencyArr.sort((a, b) => {
+    return b[1] - a[1];
+  });
+
+  const output = [];
+  for (let i = 0; i < k; i++) {
+    output.push(sortedFrequency[i][0]);
+  }
+
+  return output;
 };
 ```
