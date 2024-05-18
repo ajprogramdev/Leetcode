@@ -369,3 +369,56 @@ var topKFrequent = function (nums, k) {
   return output;
 };
 ```
+
+## #3 Longest substring without repeating characters.
+
+### Problem
+
+Given a string s, find the length of the longest substring without repeating characters.
+
+Sample Input:\
+("abcabcbb") => 3\
+("bbbbb") => 1\
+("pwwkew") => 3\
+
+### Techniques
+
+Sliding Window
+
+### Problem solving steps:
+
+1. Create left and right pointer.
+2. Create a variable to track largest string.
+3. Create a map or set to track letters as they appear.
+4. Loop through the word while right pointer is less than length of the string.
+5. Check in the map if the property exist using the right pointer, if it does delete the the value of the first pointer that move
+   the pointer on the left once.
+6. else add the value, compare max and set to new max, increase right by 1.
+7. When loop ends return max.
+
+### Time Complexity: O(n)
+
+```javascript
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function (s) {
+  let left = 0;
+  let right = 0;
+  let max = 0;
+  let letters = {};
+
+  while (right < s.length) {
+    if (letters.hasOwnProperty(s[right])) {
+      delete letters[s[left]];
+      left = left + 1;
+    } else {
+      letters[s[right]] = right;
+      max = Math.max(Object.keys(letters).length, max);
+      right++;
+    }
+  }
+  return max;
+};
+```
