@@ -256,7 +256,7 @@ Two Pointer
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (numbers, target) {
+var twoSumSorted = function (numbers, target) {
   let left = 0;
   let right = numbers.length - 1;
   while (left < right) {
@@ -272,6 +272,49 @@ var twoSum = function (numbers, target) {
     }
   }
 
-  return [];
+  return [-1, -1];
+};
+```
+
+## #217 Contains Duplicate
+
+### Problem
+
+Given an integer array nums, return true if any value appears at least twice in the array,
+and return false if every element is distinct.\
+
+Sample Input:\
+([1,2,3,1]) => true\
+([1,2,3,4]) => false\
+
+### Techniques
+
+Hashmap
+
+### Problem solving steps:
+
+1. Create a map or set to track values as they appear.
+2. Loop through the nums array, check if value exists.
+3. If it doest return true.
+4. Else add the value to the map as key or just add the value if using a set.
+5. If loop ends it means there are no duplicates, return false.
+
+### Time Complexity: O(n)
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function (nums) {
+  const map = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (map.hasOwnProperty(nums[i])) {
+      return true;
+    }
+    map[nums[i]] = i;
+  }
+
+  return false;
 };
 ```
