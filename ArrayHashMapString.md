@@ -422,3 +422,50 @@ var lengthOfLongestSubstring = function (s) {
   return max;
 };
 ```
+
+## #704 Binary Search
+
+### Problem
+
+Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+Sample Input:\
+([-1,0,3,5,9,12],9) => 4\
+([-1,0,3,5,9,12],2) => -1
+
+### Techniques
+
+Binary Search
+
+### Problem solving steps:
+
+### Time Complexity: O(log n )
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    }
+
+    if (nums[mid] > target) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return -1;
+};
+```
