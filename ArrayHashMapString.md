@@ -469,3 +469,61 @@ var search = function (nums, target) {
   return -1;
 };
 ```
+
+## #238 Product of Array Except Self
+
+### Problem
+
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
+
+Sample Input:\
+([1,2,3,4]) => [24,12,8,6]\
+([-1,1,0,-3,3]) => [0,0,9,0,0]
+
+### Techniques
+
+### Problem solving steps:
+
+1. Create a results array.
+2. Push 1 to every position in the array.
+3. Create a prefix = 1
+4. Loop through nums, on each iteration
+   result[index] = prefix and
+   prefix = prefix \* nums[index]
+5. Create a postfix=1;
+6. Loop though nums again but this time,result = postfix \* result[i] and
+   postfix = postfix \* nums[index]
+7. return result.
+
+### Time Complexity: O(n)
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {number[]} nums
+ */
+var productExceptSelf = function (nums) {
+  const result = [];
+  for (let i = 0; i < nums.length; i++) {
+    result.push(1);
+  }
+
+  let prefix = 1;
+  for (let i = 0; i < nums.length; i++) {
+    result[i] = prefix;
+    prefix = prefix * nums[i];
+  }
+
+  let postfix = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] = postfix * result[i];
+    postfix = postfix * nums[i];
+  }
+
+  return result;
+};
+```
