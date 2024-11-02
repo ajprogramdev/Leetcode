@@ -1,4 +1,4 @@
-# How to create a custom MaterialUI theme in React.
+# How to create and implement a custom MUI theme in React.
 
 ## Step 1
 
